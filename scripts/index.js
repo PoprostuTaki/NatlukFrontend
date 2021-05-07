@@ -52,89 +52,84 @@ link.addEventListener("click", function(e) {
   }
   
   // switching active class when scrolling
-  function selectElementByClass(className) {
-      return document.querySelector(`.${className}`)
-  }
+//   function selectElementByClass(className) {
+//       return document.querySelector(`.${className}`)
+//   }
 
-sect = []
+// sect = []
 
 
-const sections = [
-  selectElementByClass('about'),
-  selectElementByClass('blog'),
-  selectElementByClass('articleDetails'),
-  selectElementByClass('resources'),
-  // selectElementByClass('footer'),
-];
+// const sections = [
+//   selectElementByClass('about'),
+//   selectElementByClass('blog'),
+//   selectElementByClass('articleDetails'),
+//   selectElementByClass('resources'),
+//   // selectElementByClass('footer'),
+// ];
 
-sections.forEach(el => {if (el) {
-  sect.push(el)
-}})
+// sections.forEach(el => {if (el) {
+//   sect.push(el)
+// }})
 
-const navItems = {
-  about: selectElementByClass('nav-about'),
-  blog: selectElementByClass('nav-blog'),
-  articleDetails: selectElementByClass('nav-articleDetails'),
-  resources: selectElementByClass('nav-resources'),
-  // footer: selectElementByClass('nav-contact'),
-};
+// const navItems = {
+//   about: selectElementByClass('nav-about'),
+//   blog: selectElementByClass('nav-blog'),
+//   articleDetails: selectElementByClass('nav-articleDetails'),
+//   resources: selectElementByClass('nav-resources'),
+//   // footer: selectElementByClass('nav-contact'),
+// };
 
-const observerOptions = {
-  root: document.querySelector("main"),
-  rootMargin: '0px',
-  threshold: 0.7,
-};
+// const observerOptions = {
+//   root: document.querySelector("main"),
+//   rootMargin: '0px',
+//   threshold: 0.7,
+// };
 
-function observerCallback(entries, observer) {
-  entries.forEach((entry) => {
-    const navItem = navItems[entry.target.id];
+// function observerCallback(entries, observer) {
+//   entries.forEach((entry) => {
+//     const navItem = navItems[entry.target.id];
    
-    if (entry.isIntersecting) {
-      console.log("yes");
-      console.log(navItems)
-      console.log(navItem)
-      navItem.classList.add('active-link');
-      storage.setItem("active-link", navItem.innerText);
+//     if (entry.isIntersecting) {
+//       navItem.classList.add('active-link');
+//       storage.setItem("active-link", navItem.innerText);
       
-      Object.values(navItems).forEach((item) => {
-        if (item != navItem) {
-          item.classList.remove('active-link');
-        }
-      });
-    } else {
-      console.log("not");
-      console.log(navItem)
-      navItem.classList.remove('active-link');
-    }
-  });
-}
+//       Object.values(navItems).forEach((item) => {
+//         if (item != navItem) {
+//           item.classList.remove('active-link');
+//         }
+//       });
+//     } else {
+//       navItem.classList.remove('active-link');
+//     }
+//   });
+// }
 
-const observer = new IntersectionObserver(observerCallback, observerOptions);
-sect.forEach((sec) => {
-  observer.observe(sec)})
+// const observer = new IntersectionObserver(observerCallback, observerOptions);
+// sect.forEach((sec) => {
+//   observer.observe(sec)})
 
 //
-const contactNavLink = document.querySelector(".nav-contact");
-const footer = document.querySelector(".footer");
+// const contactNavLink = document.querySelector(".nav-contact");
+// const footer = document.querySelector(".footer");
 
-const observerOpt = {
-  root: null,
-  rootMargin: '0px',
-  threshold: 0.7,
-}
+// const observerOpt = {
+//   root: null,
+//   rootMargin: '0px',
+//   threshold: 0.7,
+// }
 
-function observerCal(entries, observe) {  
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      contactNavLink.classList.add('active-link')
-    } else {
-      contactNavLink.classList.remove('active-link')
-    }
-  })
-}
+// function observerCal(entries, observe) {  
+//   entries.forEach((entry) => {
+//     if (entry.isIntersecting) {
+//       contactNavLink.classList.add('active-link')
+//     } else {
+//       contactNavLink.classList.remove('active-link')
+//     }
+//   })
+// }
 
-const observere = new IntersectionObserver(observerCal, observerOpt);
-observere.observe(footer)
+// const observere = new IntersectionObserver(observerCal, observerOpt);
+// observere.observe(footer)
 
  // switcher colors for navbar after scroll
   const nav__desktop = document.querySelector(".nav");
